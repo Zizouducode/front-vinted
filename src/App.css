@@ -4,24 +4,30 @@
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* HEADER */
 
 .header-container {
   width: 100vw;
   background-color: white;
   height: 80px;
-
   display: flex;
+  /* background-color: blue; */
 }
 
 .header {
-  max-width: 1200px;
-
+  width: 1200px;
   margin: 0 auto;
+  /* width: 1200px; */
   display: flex;
-  gap: 30px;
+  /* gap: 30px; */
   justify-content: space-between;
   align-items: center;
+  /* background-color: red; */
 }
 
 .logo {
@@ -54,12 +60,12 @@
 
 .white-button {
   background-color: white;
-  color: #2aaeb7;
-  border: 1px solid #2aaeb7;
+  color: #007580;
+  border: 1px solid #007580;
 }
 
 .green-button {
-  background-color: #2aaeb7;
+  background-color: #007580;
   color: white;
 }
 
@@ -71,6 +77,13 @@
   background-image: url("./assets/images/banner-wide.jpg");
   background-size: cover;
   background-position: center;
+  padding-top: 125px;
+}
+
+.hero-container {
+  max-width: 1200px;
+
+  margin: 0 auto;
 }
 
 .hero {
@@ -81,7 +94,7 @@
   padding: 32px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   border-radius: 5px;
 }
@@ -92,4 +105,62 @@
   height: 40px;
   margin-top: 30px;
   border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.hero span {
+  font-size: 14px;
+  color: #007580;
+  line-height: 20px;
+}
+
+/* OFFERS */
+
+.offers {
+  margin-top: 50px;
+  border: 2x red solid;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.offer {
+  border: 2px green solid;
+  width: 24%;
+  height: 480px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.offer-user-info {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.offer-image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.offer-image {
+  height: 355px;
+  width: 235px;
+  object-fit: contain;
+}
+
+.offer-description-containter {
+  display: flex;
+  padding: 10px 25px;
+
+  flex-direction: column;
+}
+
+.offer-details {
+  color: #757575;
+  font-size: 12px;
+  line-height: 16px;
 }
