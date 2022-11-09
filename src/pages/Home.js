@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
@@ -7,10 +6,10 @@ import Offer from "../components/Offer";
 const Home = () => {
   //State to store data from de backend
   const [data, setData] = useState();
-  //State to notify when the data is reicved
+  //State to notify when the data is received
   const [isLoading, setIsLoading] = useState(true);
 
-  //Use effect required to fecth the data when the component is mount
+  //UseEffect required to fecth the data when the component is mount
 
   useEffect(() => {
     const fecthData = async () => {
@@ -29,7 +28,7 @@ const Home = () => {
     };
     fecthData();
   }, []);
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <Hero />
