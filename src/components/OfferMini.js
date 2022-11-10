@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Offer = ({ offer }) => {
   return (
-    <div key={offer._id} className="offer">
+    <div className="offer">
       <div className="offer-user-info">
         <span>photo</span>
         <span>{offer.owner.account.username}</span>

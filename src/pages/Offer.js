@@ -28,10 +28,61 @@ const Offer = () => {
       }
     };
     fecthData();
-  }, []);
+  }, [id]);
   console.log(data);
 
-  return <div>Je suis la page Offer</div>;
+  return isLoading ? (
+    <p>Loading</p>
+  ) : (
+    <div className="grey-background">
+      <div className="offer-page-container">
+        <div className="offer-page-img-container">
+          <img
+            className="offer-page-img"
+            src={data.offer.product_image.secure_url}
+            alt="offer"
+          />
+        </div>
+        <div className="offer-page-info">
+          <p className="offer-page-details-price">
+            {data.offer.product_price} €
+          </p>
+          <div className="offer-page-details">
+            <div className="offer-page-details-keys">
+              <p>MARQUE</p>
+              <p>TAILLE</p>
+              <p>ÉTAT</p>
+              <p>COULEUR</p>
+              <p>EMPLACEMENT</p>
+            </div>
+            <div className="offer-page-details-values">
+              <p>{data.offer.product_details[0].brand}</p>
+              <p>{data.offer.product_details[1].size}</p>
+              <p>{data.offer.product_details[2].condition}</p>
+              <p>{data.offer.product_details[3].color}</p>
+              <p>{data.offer.product_details[4].city}</p>
+            </div>
+          </div>
+          <div className="offer-page-details-main">
+            <p className="offer-page-details-title">
+              {data.offer.product_name}
+            </p>
+            <p className="offer-page-details-description">
+              {data.offer.product_description}
+            </p>
+            <div className="offer-page-details-user-info">
+              <p className="offer-page-details-user-picture">T</p>
+              <p className="offer-page-details-user-username">
+                {data.offer.owner.account.username}
+              </p>
+            </div>
+          </div>
+
+          <button className="offer-page-buy-button">Acheter</button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Offer;

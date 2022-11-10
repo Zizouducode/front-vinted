@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
-import Offer from "../components/Offer";
+import OfferMni from "../components/OfferMini";
 
 const Home = () => {
   //State to store data from de backend
@@ -38,7 +38,7 @@ const Home = () => {
       ) : (
         <div className="offers container">
           {data.offers.map((offer) => {
-            return <Offer offer={offer} />;
+            return <OfferMni key={offer._id} offer={offer} />;
           })}
         </div>
       )}
