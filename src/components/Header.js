@@ -2,8 +2,18 @@ import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
+import SwitchButton from "./SwitchButton";
+import PriceRange from "./PriceRange";
 
-const Header = ({ handleToken, searchBar, setSearchBar }) => {
+const Header = ({
+  handleToken,
+  searchBar,
+  setSearchBar,
+  switchButton,
+  setSwichButton,
+  priceRange,
+  setPriceRange,
+}) => {
   //State and variables
   const navigate = useNavigate();
 
@@ -23,10 +33,10 @@ const Header = ({ handleToken, searchBar, setSearchBar }) => {
   return (
     <div className="header-container">
       <div className="header">
+        <div></div>
         <Link to="/">
           <img className="logo" src={logo} alt="" />
         </Link>
-
         <div>
           <input
             className="search-bar"
@@ -68,6 +78,17 @@ const Header = ({ handleToken, searchBar, setSearchBar }) => {
           <button className="header-button green-button">
             Vends tes articles
           </button>
+        </div>
+      </div>
+      <div className="container filters-container">
+        <div>
+          <SwitchButton
+            switchButton={switchButton}
+            setSwichButton={setSwichButton}
+          />
+        </div>
+        <div className="price-range">
+          <PriceRange priceRange={priceRange} setPriceRange={setPriceRange} />
         </div>
       </div>
     </div>

@@ -30,6 +30,7 @@ input:focus {
   background-color: white;
   height: 80px;
   display: flex;
+  flex-direction: column;
   /* background-color: blue; */
 }
 
@@ -88,6 +89,27 @@ input:focus {
   background-color: #c2175b;
   color: white;
 }
+
+.filters-container {
+  display: flex;
+  width: 1200px;
+  gap: 50px;
+  justify-content: flex-start;
+}
+
+.price-range {
+  /* background-color: red; */
+  width: 500px;
+}
+
+/* .filter-switch-button {
+  /* background-color: red;
+  font-size: 12px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  height: 40px; 
+} */
 
 /* HOME PAGE */
 

@@ -15,6 +15,8 @@ function App() {
   //State and variables
   const [token, setToken] = useState(Cookies.get("token") || null);
   const [searchBar, setSearchBar] = useState("");
+  const [switchButton, setSwichButton] = useState(false);
+  const [priceRange, setPriceRange] = useState([10, 100]);
 
   //Function to handle token
   const handleToken = (token) => {
@@ -34,9 +36,22 @@ function App() {
           handleToken={handleToken}
           searchBar={searchBar}
           setSearchBar={setSearchBar}
+          switchButton={switchButton}
+          setSwichButton={setSwichButton}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
         />
         <Routes>
-          <Route path="/" element={<Home searchBar={searchBar} />}></Route>
+          <Route
+            path="/"
+            element={
+              <Home
+                searchBar={searchBar}
+                switchButton={switchButton}
+                priceRange={priceRange}
+              />
+            }
+          ></Route>
           <Route path="/offer/:id" element={<Offer />}></Route>
           <Route
             path="/signup"
