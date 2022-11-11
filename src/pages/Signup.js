@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const Signup = ({ handleToken }) => {
           }
         } catch (error) {
           console.log(error.response.status);
-          if (error.response.status === 409) alert("This user alrady exists");
+          if (error.response?.status === 409) alert("This user already exists");
         }
       };
       registerUser();
@@ -65,6 +65,7 @@ const Signup = ({ handleToken }) => {
     <div className="container">
       <div className="form-container">
         <form className="form" onSubmit={(event) => handleFormSubmit(event)}>
+          <h1>S'inscrire</h1>
           <input
             type="text"
             name="username"
@@ -86,22 +87,31 @@ const Signup = ({ handleToken }) => {
             onChange={(event) => handlePasswordChange(event)}
             value={password}
           />
-          <div className="newsletter">
-            <input
-              type="checkbox"
-              onClick={handleCheckBoxChange}
-              value={checkBox}
-            />
-            <p>
-              En m'inscrivant je confirme avoir lu et accepté les Termes &
-              Conditions et Politique de Confidentialité de Vinted. Je confirme
-              avoir au moins 18 ans.
-            </p>
+          <div className="newsletter-container">
+            <div className="newsletter">
+              <input
+                className="checkbox"
+                type="checkbox"
+                onClick={handleCheckBoxChange}
+                checked={checkBox}
+              />
+              <span>S'inscrire à notre newsletter</span>
+            </div>
+
+            <div>
+              <p className="terms-and-condtions">
+                En m'inscrivant je confirme avoir lu et accepté les Termes &
+                Conditions et Politique de Confidentialité de Vinted. Je
+                confirme avoir au moins 18 ans.
+              </p>
+            </div>
           </div>
 
-          <button type="submit">S'inscrire</button>
+          <button type="submit" className="subscribe-button green-button">
+            S'inscrire
+          </button>
           <Link to="/login">
-            <p>Tu as déjà un compte ? Connecte-toi !</p>
+            <p className="form-last-p">Tu as déjà un compte ? Connecte-toi !</p>
           </Link>
         </form>
       </div>

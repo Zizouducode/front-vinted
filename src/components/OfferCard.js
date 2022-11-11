@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Offer = ({ offer }) => {
+const OfferCard = ({ offer }) => {
   return (
     <div className="offer">
       <div className="offer-user-info">
@@ -25,4 +25,4 @@ const Offer = ({ offer }) => {
   );
 };
 
-export default Offer;
+export default OfferCard;

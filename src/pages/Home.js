@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
-import OfferMni from "../components/OfferMini";
+import OfferCard from "../components/OfferCard";
 
-const Home = () => {
+const Home = ({ searchBar }) => {
   //State to store data from de backend
   const [data, setData] = useState();
+
   //State to notify when the data is received
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,7 +17,8 @@ const Home = () => {
       //Request to get the from the backend
       try {
         const response = await axios.get(
-          "https://site--backend-vinted--nfqr62d7mh6n.code.run/offers"
+          "https://site--backend-vinted--nfqr62d7mh6n.code.run/offers",
+          { params: { title: searchBar } }
         );
         //Store the data in the state data
         setData(response.data);
@@ -27,7 +29,7 @@ const Home = () => {
       }
     };
     fecthData();
-  }, []);
+  }, [searchBar]);
   // console.log(data);
   return (
     <div>
@@ -38,7 +40,7 @@ const Home = () => {
       ) : (
         <div className="offers container">
           {data.offers.map((offer) => {
-            return <OfferMni key={offer._id} offer={offer} />;
+            return <OfferCard key={offer._id} offer={offer} />;
           })}
         </div>
       )}

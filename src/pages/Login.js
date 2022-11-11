@@ -1,8 +1,9 @@
 import axios from "axios";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 const Login = ({ handleToken }) => {
   //State and variables
   const [email, setEmail] = useState("");
@@ -53,6 +54,7 @@ const Login = ({ handleToken }) => {
             handleFormSubmit(event);
           }}
         >
+          <h1>Se connecter</h1>
           <input
             type="email"
             placeholder="Adresse email"
@@ -69,9 +71,11 @@ const Login = ({ handleToken }) => {
             }}
             value={password}
           />
-          <button type="submit">Se connecter</button>
+          <button type="submit" className="subscribe-button green-button">
+            Se connecter
+          </button>
           <Link to="/signup">
-            <p>Pas encore de compte ? Inscris-toi !</p>
+            <p className="form-last-p">Pas encore de compte ? Inscris-toi !</p>
           </Link>
         </form>
       </div>
