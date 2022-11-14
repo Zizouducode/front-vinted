@@ -1,17 +1,15 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Publish = ({ token }) => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!token) {
-      navigate("/");
-    }
-  });
-
   console.log(token);
+  //State and variables
 
-  return (
+  // useEffect(() => {
+  //   if (!token) {
+  //   }
+  // }, []);
+  return token ? (
     <div className="container">
       <h2>Vends ton article</h2>
       <form>
@@ -43,6 +41,8 @@ const Publish = ({ token }) => {
         </div>
       </form>
     </div>
+  ) : (
+    <Navigate to="/" />
   );
 };
 
