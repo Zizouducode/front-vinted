@@ -1,3 +1,5 @@
+import dechire from "../assets/images/dechire.svg";
+
 const Hero = () => {
   return (
     <div className="banner-container">
@@ -8,6 +10,7 @@ const Hero = () => {
           <span>Découvrir comment ça marche</span>
         </div>
       </div>
+      <img className="hero-form" src={dechire} alt="" />
     </div>
   );
 };

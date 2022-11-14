@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 
 import Cookies from "js-cookie";
 import { useState } from "react";
+import Publish from "./pages/Publish";
 
 function App() {
   //State and variables
@@ -61,6 +62,7 @@ function App() {
             path="/login"
             element={<Login handleToken={handleToken} />}
           ></Route>
+          <Route path="/publish" element={<Publish token={token} />} />
         </Routes>
       </Router>
     </div>

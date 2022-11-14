@@ -10,9 +10,8 @@ const SwitchButton = ({ switchButton, setSwichButton }) => {
   };
 
   return (
-    <div className="filter-switch-button">
-      <label>
-        <span>Trier par prix</span>
+    <label>
+      <span>
         <Switch
           onChange={() => {
             handleChange();
@@ -25,8 +24,8 @@ const SwitchButton = ({ switchButton, setSwichButton }) => {
           uncheckedIcon={false}
           checkedIcon={false}
         />
-      </label>
-    </div>
+      </span>
+    </label>
   );
 };
 

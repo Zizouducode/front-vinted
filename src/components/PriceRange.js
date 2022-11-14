@@ -8,11 +8,13 @@ const PriceRange = ({ priceRange, setPriceRange }) => {
     setPriceRange(newPriceRange);
   };
 
-  const values = priceRange;
-  console.log(priceRange);
+  let values = priceRange;
+  // console.log(priceRange);
 
   return (
-    <div>
+    <>
+      <span>Prix entre : </span>
+
       <Range
         step={5}
         min={10}
@@ -23,12 +25,13 @@ const PriceRange = ({ priceRange, setPriceRange }) => {
         }}
         renderTrack={({ props, children }) => (
           <div
-            {...props}
+            // onMouseDown={props.onMouseDown}
+            // onTouchStart={props.onTouchStart}
             style={{
               ...props.style,
-              height: "6px",
-              width: "100%",
-              backgroundColor: "#cccccc",
+              height: "36px",
+              display: "flex",
+              width: "50%",
             }}
           >
             <div
@@ -39,9 +42,9 @@ const PriceRange = ({ priceRange, setPriceRange }) => {
                 borderRadius: "4px",
                 background: getTrackBackground({
                   values,
-                  colors: ["#ccc", "#548BF4", "#ccc"],
-                  min: priceRange[0],
-                  max: priceRange[1],
+                  colors: ["#ccc", "#007580", "#ccc"],
+                  min: 10,
+                  max: 500,
                 }),
                 alignSelf: "center",
               }}
@@ -50,7 +53,7 @@ const PriceRange = ({ priceRange, setPriceRange }) => {
             </div>
           </div>
         )}
-        renderThumb={({ props }) => (
+        renderThumb={({ props, index, isDragged }) => (
           <div
             {...props}
             style={{
@@ -59,11 +62,39 @@ const PriceRange = ({ priceRange, setPriceRange }) => {
               width: "15px",
               borderRadius: "50%",
               backgroundColor: "#007580",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-          />
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "-28px",
+                color: "#fff",
+
+                fontSize: "12px",
+                fontFamily: "Roboto,sans-serif",
+                padding: "4px",
+                borderRadius: "4px",
+                backgroundColor: "#007580",
+              }}
+            >
+              {values[index].toFixed(0)}€
+            </div>
+            <div
+              style={
+                {
+                  // height: "16px",
+                  // width: "5px",
+                  // backgroundColor: isDragged ? "#007580" : "#007580",
+                }
+              }
+            />
+          </div>
         )}
       />
-    </div>
+    </>
   );
 };
 

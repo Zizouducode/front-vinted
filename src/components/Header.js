@@ -33,10 +33,11 @@ const Header = ({
   return (
     <div className="header-container">
       <div className="header">
-        <div></div>
-        <Link to="/">
-          <img className="logo" src={logo} alt="" />
-        </Link>
+        <div>
+          <Link to="/">
+            <img className="logo" src={logo} alt="" />
+          </Link>
+        </div>
         <div>
           <input
             className="search-bar"
@@ -45,7 +46,16 @@ const Header = ({
               handleSearchBarChange(event);
             }}
             value={searchBar}
+            placeholder="Recherche des articles"
           />
+          <div className="filters-container">
+            <span>Trier par prix : </span>
+            <SwitchButton
+              switchButton={switchButton}
+              setSwichButton={setSwichButton}
+            />
+            <PriceRange priceRange={priceRange} setPriceRange={setPriceRange} />
+          </div>
         </div>
         <div className="header-button-container">
           {!userCookie ? (
@@ -75,20 +85,11 @@ const Header = ({
           )}
         </div>
         <div>
-          <button className="header-button green-button">
-            Vends tes articles
-          </button>
-        </div>
-      </div>
-      <div className="container filters-container">
-        <div>
-          <SwitchButton
-            switchButton={switchButton}
-            setSwichButton={setSwichButton}
-          />
-        </div>
-        <div className="price-range">
-          <PriceRange priceRange={priceRange} setPriceRange={setPriceRange} />
+          <Link to="/publish">
+            <button className="header-button green-button">
+              Vends tes articles
+            </button>
+          </Link>
         </div>
       </div>
     </div>

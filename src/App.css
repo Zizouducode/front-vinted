@@ -28,9 +28,10 @@ input:focus {
 .header-container {
   width: 100vw;
   background-color: white;
-  height: 80px;
+  height: 125px;
   display: flex;
   flex-direction: column;
+
   /* background-color: blue; */
 }
 
@@ -39,7 +40,7 @@ input:focus {
   margin: 0 auto;
   /* width: 1200px; */
   display: flex;
-  /* gap: 30px; */
+  gap: 30px;
   justify-content: space-between;
   align-items: center;
   /* background-color: red; */
@@ -51,11 +52,14 @@ input:focus {
 }
 
 .search-bar {
-  width: 350px;
-  height: 45px;
+  width: 630px;
+  height: 40px;
   border: none;
   border-radius: 5px;
   background-color: #f5f6f7;
+  margin-top: 10px;
+  padding-left: 40px;
+  font-size: 16px;
 }
 
 .header-button-container {
@@ -92,24 +96,14 @@ input:focus {
 
 .filters-container {
   display: flex;
-  width: 1200px;
-  gap: 50px;
-  justify-content: flex-start;
-}
-
-.price-range {
-  /* background-color: red; */
-  width: 315px;
-}
-
-/* .filter-switch-button {
-  /* background-color: red;
-  font-size: 12px;
-  display: flex;
-  gap: 30px;
   align-items: center;
-  height: 40px; 
-} */
+  height: 80px;
+}
+
+.filters-container span {
+  font-size: 12px;
+  margin-right: 20px;
+}
 
 /* HOME PAGE */
 
@@ -120,6 +114,7 @@ input:focus {
   background-size: cover;
   background-position: center;
   padding-top: 125px;
+  position: relative;
 }
 
 .hero-container {
@@ -155,6 +150,14 @@ input:focus {
   font-size: 14px;
   color: #007580;
   line-height: 20px;
+}
+
+.hero-form {
+  bottom: 0;
+  height: 80px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
 }
 
 /* OFFERS MINI */
