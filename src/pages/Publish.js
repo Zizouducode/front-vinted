@@ -110,18 +110,18 @@ const Publish = ({ token }) => {
   //If user had a token return form otherwise login page
   return token ? (
     <div className="publish-body-background-color">
-      <div className="publish-form container">
+      <div className="publish-form-container container">
         <h2>Vends ton article</h2>
-        <form className="" onSubmit={handleSubmit}>
+        <form className="publish-form" onSubmit={handleSubmit}>
           <div className="publish-form-picture-upload">
             <div className="publish-form-picture-upload-dashed">
-              <button
+              <div
                 className="publish-form-add-picture"
                 type="file"
                 onClick={handleClick}
               >
                 + Ajoute une photo
-              </button>
+              </div>
               <input
                 type="file"
                 style={{ display: "none" }}
@@ -130,71 +130,91 @@ const Publish = ({ token }) => {
               />
             </div>
           </div>
-          <div>
-            <p>Titre</p>
-            <input
-              type="text"
-              placeholder="ex: Chemise Sezane Verte"
-              onChange={handleTitleChange}
-              value={title}
-            />
-            <p>Decris ton article</p>
-            <input
-              type="text"
-              placeholder="porté quelquefois, taille correctement"
-              onChange={handleDescriptionChange}
-              value={description}
-            />
+          <div className="publish-form-container-title-descritption">
+            <div className="publish-form-title">
+              <p>Titre</p>
+              <input
+                type="text"
+                placeholder="ex: Chemise Sezane Verte"
+                onChange={handleTitleChange}
+                value={title}
+              />
+            </div>
+            <div className="publish-form-description">
+              <p>Decris ton article</p>
+              <input
+                type="textarea"
+                placeholder="porté quelquefois, taille correctement"
+                onChange={handleDescriptionChange}
+                value={description}
+              />
+            </div>
           </div>
-          <div>
-            <p>Marque</p>
-            <input
-              type="text"
-              placeholder="ex : Nike"
-              onChange={handleBrandChange}
-              value={brand}
-            />
-            <p>Taille</p>
-            <input
-              type="text"
-              placeholder="L / 40 / 34"
-              onChange={handleSizeChange}
-              value={size}
-            />
-            <p>Couleur</p>
-            <input
-              type="text"
-              placeholder="ex: Noir"
-              onChange={handleColorChange}
-              value={color}
-            />
-            <p>Etat</p>
-            <input
-              type="text"
-              placeholder="ex : Neuf sans étiquette"
-              onChange={handleConditionChange}
-              value={condition}
-            />
-            <p>Lieu</p>
-            <input
-              type="text"
-              placeholder="Brive-La-Gaillarde"
-              onChange={handleCityChange}
-              value={city}
-            />
+          <div className="publish-form-details-container">
+            <div className="publish-form-details">
+              <p>Marque</p>
+              <input
+                type="text"
+                placeholder="ex : Nike"
+                onChange={handleBrandChange}
+                value={brand}
+              />
+            </div>
+            <div className="publish-form-details">
+              <p>Taille</p>
+              <input
+                type="text"
+                placeholder="L / 40 / 34"
+                onChange={handleSizeChange}
+                value={size}
+              />
+            </div>
+            <div className="publish-form-details">
+              <p>Couleur</p>
+              <input
+                type="text"
+                placeholder="ex: Noir"
+                onChange={handleColorChange}
+                value={color}
+              />
+            </div>
+            <div className="publish-form-details">
+              <p>Etat</p>
+              <input
+                type="text"
+                placeholder="ex : Neuf sans étiquette"
+                onChange={handleConditionChange}
+                value={condition}
+              />
+            </div>
+            <div className="publish-form-details">
+              <p>Lieu</p>
+              <input
+                type="text"
+                placeholder="Brive-La-Gaillarde"
+                onChange={handleCityChange}
+                value={city}
+              />
+            </div>
           </div>
-          <div>
+          <div className="publish-form-price-container">
             <p>Prix</p>
-            <input
-              type="number"
-              placeholder="0.00 €"
-              onChange={handlePriceChange}
-              value={price}
-            />
-            <input type="checkbox" />
-            <span>Je suis intéressé(e) par les échanges</span>
+            <div className="publish-form-price-input-checkbox-container">
+              <input
+                type="number"
+                placeholder="0,00 €"
+                onChange={handlePriceChange}
+                value={price}
+              />
+              <div className="publish-form-checkbox-container">
+                <input type="checkbox" />
+                <span>Je suis intéressé(e) par les échanges</span>
+              </div>
+            </div>
           </div>
-          <button type="submit">Ajouter</button>
+          <button className="publish-form-add-button" type="submit">
+            Ajouter
+          </button>
         </form>
       </div>
     </div>
