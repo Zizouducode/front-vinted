@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
+import React from "react";
 
 const Publish = ({ token }) => {
   // console.log(token);
@@ -16,10 +17,15 @@ const Publish = ({ token }) => {
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
 
+  //change the button format for the upload of the picture
+  const hiddenFileInput = React.useRef(null);
   //Functions
-
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
   const handlePictureChange = (event) => {
     setPicture(event.target.files[0]);
+    // handleFile(picture);
   };
 
   const handleTitleChange = (event) => {
@@ -103,78 +109,94 @@ const Publish = ({ token }) => {
 
   //If user had a token return form otherwise login page
   return token ? (
-    <div className="container">
-      <h2>Vends ton article</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="file" onChange={handlePictureChange} />
-        </div>
-        <div>
-          <p>Titre</p>
-          <input
-            type="text"
-            placeholder="ex: Chemise Sezane Verte"
-            onChange={handleTitleChange}
-            value={title}
-          />
-          <p>Decris ton article</p>
-          <input
-            type="text"
-            placeholder="porté quelquefois, taille correctement"
-            onChange={handleDescriptionChange}
-            value={description}
-          />
-        </div>
-        <div>
-          <p>Marque</p>
-          <input
-            type="text"
-            placeholder="ex : Nike"
-            onChange={handleBrandChange}
-            value={brand}
-          />
-          <p>Taille</p>
-          <input
-            type="text"
-            placeholder="L / 40 / 34"
-            onChange={handleSizeChange}
-            value={size}
-          />
-          <p>Couleur</p>
-          <input
-            type="text"
-            placeholder="ex: Noir"
-            onChange={handleColorChange}
-            value={color}
-          />
-          <p>Etat</p>
-          <input
-            type="text"
-            placeholder="ex : Neuf sans étiquette"
-            onChange={handleConditionChange}
-            value={condition}
-          />
-          <p>Lieu</p>
-          <input
-            type="text"
-            placeholder="Brive-La-Gaillarde"
-            onChange={handleCityChange}
-            value={city}
-          />
-        </div>
-        <div>
-          <p>Prix</p>
-          <input
-            type="number"
-            placeholder="0.00 €"
-            onChange={handlePriceChange}
-            value={price}
-          />
-          <input type="checkbox" />
-          <span>Je suis intéressé(e) par les échanges</span>
-        </div>
-        <button type="submit">Ajouter</button>
-      </form>
+    <div className="publish-body-background-color">
+      <div className="publish-form container">
+        <h2>Vends ton article</h2>
+        <form className="" onSubmit={handleSubmit}>
+          <div className="publish-form-picture-upload">
+            <div className="publish-form-picture-upload-dashed">
+              <button
+                className="publish-form-add-picture"
+                type="file"
+                onClick={handleClick}
+              >
+                + Ajoute une photo
+              </button>
+              <input
+                type="file"
+                style={{ display: "none" }}
+                ref={hiddenFileInput}
+                onChange={handlePictureChange}
+              />
+            </div>
+          </div>
+          <div>
+            <p>Titre</p>
+            <input
+              type="text"
+              placeholder="ex: Chemise Sezane Verte"
+              onChange={handleTitleChange}
+              value={title}
+            />
+            <p>Decris ton article</p>
+            <input
+              type="text"
+              placeholder="porté quelquefois, taille correctement"
+              onChange={handleDescriptionChange}
+              value={description}
+            />
+          </div>
+          <div>
+            <p>Marque</p>
+            <input
+              type="text"
+              placeholder="ex : Nike"
+              onChange={handleBrandChange}
+              value={brand}
+            />
+            <p>Taille</p>
+            <input
+              type="text"
+              placeholder="L / 40 / 34"
+              onChange={handleSizeChange}
+              value={size}
+            />
+            <p>Couleur</p>
+            <input
+              type="text"
+              placeholder="ex: Noir"
+              onChange={handleColorChange}
+              value={color}
+            />
+            <p>Etat</p>
+            <input
+              type="text"
+              placeholder="ex : Neuf sans étiquette"
+              onChange={handleConditionChange}
+              value={condition}
+            />
+            <p>Lieu</p>
+            <input
+              type="text"
+              placeholder="Brive-La-Gaillarde"
+              onChange={handleCityChange}
+              value={city}
+            />
+          </div>
+          <div>
+            <p>Prix</p>
+            <input
+              type="number"
+              placeholder="0.00 €"
+              onChange={handlePriceChange}
+              value={price}
+            />
+            <input type="checkbox" />
+            <span>Je suis intéressé(e) par les échanges</span>
+          </div>
+          <button type="submit">Ajouter</button>
+        </form>
+      </div>
     </div>
   ) : (
     <Navigate to="/login" />

@@ -393,3 +393,48 @@ input:focus {
   text-align: center;
   color: #007580;
 }
+
+/* PUBLISH */
+
+.publish-body-background-color {
+  background-color: #ebedee;
+}
+
+.publish-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.publish-form h2 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.publish-form-picture-upload {
+  background-color: white;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.publish-form-picture-upload-dashed {
+  height: calc(100% - 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 40px);
+  border: #ebedee 1px dashed;
+  /* background-color: lightblue; */
+}
+
+.publish-form-add-picture {
+  background-color: white;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #007580;
+  color: #007580;
+  font-size: 16px;
+  cursor: pointer;
+}
