@@ -141,10 +141,10 @@ const Publish = ({ token }) => {
               />
             </div>
             <div className="publish-form-description">
-              <p>Decris ton article</p>
-              <input
+              <p>Décris ton article</p>
+              <textarea
                 type="textarea"
-                placeholder="porté quelquefois, taille correctement"
+                placeholder="ex : porté quelquefois, taille correctement"
                 onChange={handleDescriptionChange}
                 value={description}
               />

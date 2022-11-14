@@ -160,19 +160,21 @@ input:focus {
   right: 0;
 }
 
-/* OFFERS MINI */
+/* OFFERCARD */
 
 .offers {
   margin-top: 50px;
   border: 2x red solid;
   display: flex;
-  justify-content: space-between;
+
+  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 
 .offer {
   /* border: 2px green solid; */
-  width: 24%;
+  width: calc(100% / 4 - 20px);
+  margin-right: 20px;
   height: 480px;
   padding: 10px;
   margin-bottom: 20px;
@@ -490,12 +492,15 @@ input:focus {
 .publish-form-description p {
   width: 50%;
 }
-.publish-form-description input {
+.publish-form-description textarea {
   width: 50%;
   border: none;
   height: 115px;
   border-bottom: 1px solid #ebedee;
   /* background-color: red; */
+  vertical-align: bottom;
+  font-family: "Roboto", sans-serif;
+  resize: none;
 }
 .publish-form-description input:focus {
   border-bottom: 1px solid #007580;

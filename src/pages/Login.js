@@ -34,7 +34,7 @@ const Login = ({ handleToken }) => {
           console.log(response);
           if (response.data.token) {
             handleToken(response.data.token);
-            navigate("/");
+            navigate("/publish");
           }
         } catch (error) {
           console.log(error.message);

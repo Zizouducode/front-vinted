@@ -20,6 +20,9 @@ const Header = ({
   //Get the cookie from the nav
   const userCookie = Cookies.get("token");
 
+  //Get the current path to show filters only on Home Page
+  const currentLocation = window.location.pathname;
+
   //Functions
   const handleLogout = (event) => {
     event.preventDefault();
@@ -48,14 +51,19 @@ const Header = ({
             value={searchBar}
             placeholder="Recherche des articles"
           />
-          <div className="filters-container">
-            <span>Trier par prix : </span>
-            <SwitchButton
-              switchButton={switchButton}
-              setSwichButton={setSwichButton}
-            />
-            <PriceRange priceRange={priceRange} setPriceRange={setPriceRange} />
-          </div>
+          {currentLocation === "/" && (
+            <div className="filters-container">
+              <span>Trier par prix : </span>
+              <SwitchButton
+                switchButton={switchButton}
+                setSwichButton={setSwichButton}
+              />
+              <PriceRange
+                priceRange={priceRange}
+                setPriceRange={setPriceRange}
+              />
+            </div>
+          )}
         </div>
         <div className="header-button-container">
           {!userCookie ? (
