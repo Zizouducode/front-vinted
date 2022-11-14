@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const Offer = () => {
   //Get ID from the route
   const { id } = useParams();
-  console.log(id);
+
   //State to store the offer received
   const [data, setData] = useState();
   //State to notify when the data is received
@@ -21,6 +21,7 @@ const Offer = () => {
         );
         //Store the data in the state data
         setData(response.data);
+        console.log(response.data);
         //Change bool isLoading to notify data is received
         setIsLoading(false);
       } catch (error) {
@@ -29,7 +30,7 @@ const Offer = () => {
     };
     fecthData();
   }, [id]);
-  console.log(data);
+  // console.log(data);
 
   return isLoading ? (
     <p>Loading</p>
@@ -48,20 +49,19 @@ const Offer = () => {
             {data.offer.product_price} €
           </p>
           <div className="offer-page-details">
-            <div className="offer-page-details-keys">
-              <p>MARQUE</p>
-              <p>TAILLE</p>
-              <p>ÉTAT</p>
-              <p>COULEUR</p>
-              <p>EMPLACEMENT</p>
-            </div>
-            <div className="offer-page-details-values">
-              <p>{data.offer.product_details[0].brand}</p>
-              <p>{data.offer.product_details[1].size}</p>
-              <p>{data.offer.product_details[2].condition}</p>
-              <p>{data.offer.product_details[3].color}</p>
-              <p>{data.offer.product_details[4].city}</p>
-            </div>
+            {data.offer.product_details.map((detail, index) => {
+              const objectKey = Object.keys(detail)[0];
+              return (
+                <div className="offer-page-details-row" key={index}>
+                  <span className="offer-page-details-keys">
+                    {objectKey.toUpperCase()} :
+                  </span>
+                  <span className="offer-page-details-values">
+                    {detail[objectKey]}
+                  </span>
+                </div>
+              );
+            })}
           </div>
           <div className="offer-page-details-main">
             <p className="offer-page-details-title">

@@ -37,6 +37,7 @@ const Home = ({ searchBar, switchButton, priceRange }) => {
         );
         //Store the data in the state data
         setData(response.data);
+        // console.log(response.data);
         //Change bool isLoading to notify data is received
         setIsLoading(false);
       } catch (error) {

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React from "react";
+import Dropzone from "../components/Dropzone";
 
 const Publish = ({ token }) => {
   // console.log(token);
@@ -16,17 +17,19 @@ const Publish = ({ token }) => {
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
+  const navigate = useNavigate();
 
   //change the button format for the upload of the picture
-  const hiddenFileInput = React.useRef(null);
+  // const hiddenFileInput = React.useRef(null);
   //Functions
-  const handleClick = (event) => {
-    hiddenFileInput.current.click();
-  };
-  const handlePictureChange = (event) => {
-    setPicture(event.target.files[0]);
-    // handleFile(picture);
-  };
+  // const handleClick = (event) => {
+  //   hiddenFileInput.current.click();
+  // };
+  // const handlePictureChange = (event) => {
+  //   setPicture(event.target.files[0]);
+  //   // handleFile(picture);
+  // };
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -58,6 +61,10 @@ const Publish = ({ token }) => {
 
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
+  };
+
+  const handleCheckboxChange = () => {
+    setCheckbox(!checkbox);
   };
 
   const handleSubmit = async (event) => {
@@ -100,7 +107,11 @@ const Publish = ({ token }) => {
           }
         );
         setData(response.data);
-        console.log(response.data);
+        if (response.status === 200) {
+          alert("Votre annonce a bien été enregistrée");
+          navigate(`/offer/${response.data.newOffer._id}`);
+        }
+        console.log(response);
       } catch (error) {
         console.log(error.message);
       }
@@ -115,19 +126,20 @@ const Publish = ({ token }) => {
         <form className="publish-form" onSubmit={handleSubmit}>
           <div className="publish-form-picture-upload">
             <div className="publish-form-picture-upload-dashed">
-              <div
+              <Dropzone picture={picture} setPicture={setPicture} />
+              {/* <div
                 className="publish-form-add-picture"
                 type="file"
                 onClick={handleClick}
               >
                 + Ajoute une photo
-              </div>
-              <input
+              </div> */}
+              {/* <input
                 type="file"
                 style={{ display: "none" }}
                 ref={hiddenFileInput}
                 onChange={handlePictureChange}
-              />
+              /> */}
             </div>
           </div>
           <div className="publish-form-container-title-descritption">
@@ -207,7 +219,11 @@ const Publish = ({ token }) => {
                 value={price}
               />
               <div className="publish-form-checkbox-container">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={handleCheckboxChange}
+                  value={checkbox}
+                />
                 <span>Je suis intéressé(e) par les échanges</span>
               </div>
             </div>

@@ -4,8 +4,12 @@ const OfferCard = ({ offer }) => {
   return (
     <div className="offer">
       <div className="offer-user-info">
-        <span>photo</span>
-        <span>{offer.owner.account.username}</span>
+        <div className="offer-user-info-picture">
+          {offer.owner.account.username.charAt(0).toUpperCase()}
+        </div>
+        <div className="offer-user-info-username">
+          {offer.owner.account.username}
+        </div>
       </div>
       <div className="offer-image-container">
         <Link to={`/offer/${offer._id}`}>

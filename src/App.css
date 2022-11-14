@@ -4,6 +4,19 @@
   box-sizing: border-box;
 }
 
+/* Remove arrow from input numbers */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -51,6 +64,17 @@ input:focus {
   width: auto;
 }
 
+.search-bar-container {
+  display: flex;
+  align-items: center;
+}
+.magnifying-glass-icon {
+  color: #bbbbbb;
+  font-size: 16px;
+  margin-right: -30px;
+  z-index: 1;
+  margin-top: 10px;
+}
 .search-bar {
   width: 630px;
   height: 40px;
@@ -144,6 +168,7 @@ input:focus {
   border-radius: 5px;
   font-size: 16px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .hero span {
@@ -184,12 +209,30 @@ input:focus {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.offer-user-info-picture {
+  background-color: #007580;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  font-size: 12px;
+}
+
+.offer-user-info-username {
+  font-size: 12px;
+  color: #999999;
 }
 
 .offer-image-container {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   cursor: pointer;
 }
 
@@ -256,13 +299,17 @@ input:focus {
   height: 125px;
   margin-bottom: 50px;
   border-bottom: 1px solid #ebedee;
-  gap: 30px;
+  flex-direction: column;
+}
+.offer-page-details-row {
+  display: flex;
 }
 
 .offer-page-details-keys {
   color: #b9bbbc;
   font-size: 14px;
   font-weight: 300;
+  width: 50%;
 }
 .offer-page-details-values {
   color: #757575;
@@ -331,6 +378,7 @@ input:focus {
   max-width: 35%;
   margin: 0 auto;
   padding: 30px;
+  min-height: 100vh;
 }
 .form h1 {
   /* background-color: red; */
@@ -425,6 +473,30 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.dropzone-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.dropzone-button {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #007580;
+  background-color: white;
+  color: #007580;
+  cursor: pointer;
+}
+
+.dropzone-container span {
+  color: #999999;
+  font-size: 12px;
+  margin-top: 15px;
 }
 
 .publish-form-picture-upload-dashed {
@@ -581,4 +653,21 @@ input:focus {
   color: white;
   align-self: flex-end;
   margin: 50px 0;
+  cursor: po;
+}
+
+/* FOOTER */
+
+footer {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f6f7;
+  padding-top: 20px;
+
+  width: 100vw;
+}
+
+footer span {
+  font-weight: 900;
 }

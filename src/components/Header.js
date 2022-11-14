@@ -4,6 +4,7 @@ import logo from "../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
 import SwitchButton from "./SwitchButton";
 import PriceRange from "./PriceRange";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = ({
   handleToken,
@@ -42,15 +43,22 @@ const Header = ({
           </Link>
         </div>
         <div>
-          <input
-            className="search-bar"
-            type="text"
-            onChange={(event) => {
-              handleSearchBarChange(event);
-            }}
-            value={searchBar}
-            placeholder="Recherche des articles"
-          />
+          <div className="search-bar-container">
+            <FontAwesomeIcon
+              className="magnifying-glass-icon"
+              icon="magnifying-glass"
+            />
+            <input
+              className="search-bar"
+              type="text"
+              onChange={(event) => {
+                handleSearchBarChange(event);
+              }}
+              value={searchBar}
+              placeholder="Recherche des articles"
+            />
+          </div>
+
           {currentLocation === "/" && (
             <div className="filters-container">
               <span>Trier par prix : </span>

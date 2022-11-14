@@ -1,16 +1,24 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import Cookies from "js-cookie";
+import { useState } from "react";
 //Import : pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-
-import Cookies from "js-cookie";
-import { useState } from "react";
+import Footer from "./components/Footer";
 import Publish from "./pages/Publish";
+
+//Import fontawesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faMagnifyingGlass,
+  faArrowUp,
+  faArrowDown,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faMagnifyingGlass, faArrowUp, faArrowDown);
 
 function App() {
   //State and variables
@@ -64,6 +72,7 @@ function App() {
           ></Route>
           <Route path="/publish" element={<Publish token={token} />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

@@ -1,4 +1,5 @@
 import dechire from "../assets/images/dechire.svg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -6,7 +7,12 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero">
           <p>Prêts à faire du tri dans vos placards ?</p>
-          <button className="green-button hero-button">Vends maintenant</button>
+          <Link to="/publish">
+            <button className="green-button hero-button">
+              Vends maintenant
+            </button>
+          </Link>
+
           <span>Découvrir comment ça marche</span>
         </div>
       </div>
