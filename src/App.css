@@ -789,3 +789,18 @@ footer span {
   font-size: 13px;
   font-weight: 300;
 }
+
+.payment-checkout-form-payment-failed {
+  width: calc(100% - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #df2a33;
+  font-size: 13px;
+  font-weight: 300;
+}

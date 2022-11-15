@@ -9,7 +9,8 @@ const CheckoutFrom = ({ userId, offerId, totalPrice }) => {
   const elements = useElements();
   const [completed, setCompleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(offerId);
+  const [paymentFailed, setPaymentFailed] = useState();
+  // console.log(offerId);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,9 +38,12 @@ const CheckoutFrom = ({ userId, offerId, totalPrice }) => {
         setIsLoading(false);
         setCompleted(true);
       }
-      console.log(response.data);
+
+      // console.log(response.status);
     } catch (error) {
       console.log(error.message);
+      setIsLoading(false);
+      setPaymentFailed(true);
     }
   };
 
@@ -57,6 +61,10 @@ const CheckoutFrom = ({ userId, offerId, totalPrice }) => {
       ) : completed ? (
         <p className="payment-checkout-form-payment-valid">
           Payement validé. Merci pour votre achat !
+        </p>
+      ) : paymentFailed ? (
+        <p className="payment-checkout-form-payment-failed">
+          Echec du paiement !
         </p>
       ) : (
         <button className="payment-checkout-form-payment-button"> Payer</button>

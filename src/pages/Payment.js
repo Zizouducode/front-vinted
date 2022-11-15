@@ -7,9 +7,9 @@ const Payment = ({ userId }) => {
   //Get the params in the URL
   const location = useLocation();
   const { title, price, offerId } = location.state;
-  console.log(title);
-  console.log(price);
-  console.log(offerId);
+  // console.log(title);
+  // console.log(price);
+  // console.log(offerId);
   //States and variables
   const protectionFees = 1.0;
   const deliveryFees = 2.0;
