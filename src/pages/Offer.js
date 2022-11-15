@@ -21,7 +21,7 @@ const Offer = ({ token }) => {
         );
         //Store the data in the state data
         setData(response.data);
-        console.log(response.data);
+        console.log(response.data.offer._id);
         //Change bool isLoading to notify data is received
         setIsLoading(false);
       } catch (error) {

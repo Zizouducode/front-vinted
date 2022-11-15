@@ -1,18 +1,20 @@
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useState } from "react";
 
-const CheckoutFrom = ({ userId, offerId }) => {
+const CheckoutFrom = ({ userId, offerId, totalPrice }) => {
   //Create payment
   const stripe = useStripe();
   //Get the user credit card input
   const elements = useElements();
+  const [completed, setCompleted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  console.log(offerId);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setIsLoading(true);
     try {
-      //get user information
-
       //Get the inputs from the user
       const cardElement = elements.getElement(CardElement);
       //Send this information to stripe to get a token
@@ -23,10 +25,18 @@ const CheckoutFrom = ({ userId, offerId }) => {
       //Token to send to the backend to make the request payment
       const stripeToken = stripeResponse.token.id;
       //Request to send the token
-      const response = await axios.post("http://localhost:4000/payment", {
-        stripeToken: stripeToken,
-        offerId: offerId,
-      });
+      const response = await axios.post(
+        "https://site--backend-vinted--nfqr62d7mh6n.code.run/payment",
+        {
+          stripeToken: stripeToken,
+          offerId: offerId,
+          totalPrice: totalPrice,
+        }
+      );
+      if (response.data === "succeeded") {
+        setIsLoading(false);
+        setCompleted(true);
+      }
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
@@ -35,8 +45,22 @@ const CheckoutFrom = ({ userId, offerId }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement />
-      <input type="submit" />
+      <div className="payment-checkout-form-stripe-container">
+        <div>
+          <CardElement />
+        </div>
+      </div>
+      {isLoading ? (
+        <p className="payment-checkout-form-payment-loading">
+          Paiment en cours
+        </p>
+      ) : completed ? (
+        <p className="payment-checkout-form-payment-valid">
+          Payement validé. Merci pour votre achat !
+        </p>
+      ) : (
+        <button className="payment-checkout-form-payment-button"> Payer</button>
+      )}
     </form>
   );
 };

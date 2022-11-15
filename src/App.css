@@ -33,8 +33,6 @@ input:focus {
   height: 125px;
   display: flex;
   flex-direction: column;
-
-  /* background-color: blue; */
 }
 
 .header {
@@ -639,9 +637,9 @@ input:focus {
   border-bottom: 1px solid #007580;
 }
 
-.publish-form-price::-webkit-inner-spin-button {
+/* .publish-form-price::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
+} */
 
 .publish-form-checkbox-container {
   display: flex;
@@ -680,4 +678,114 @@ footer {
 
 footer span {
   font-weight: 900;
+}
+
+/* PAYMENT */
+
+.payment-background {
+  height: 100vh;
+  background-color: #ebedee;
+  padding-top: 50px;
+}
+
+.payment-checkout-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 550px;
+  background-color: white;
+}
+
+.payment-checkout-form-summary {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 300;
+  padding: 30px;
+}
+
+.payment-checkout-form-price-summary {
+  /* background-color: lightcyan; */
+  height: 120px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ebedee;
+  padding: 0px 30px;
+}
+
+.payment-checkout-form-row {
+  /* background-color: lemonchiffon; */
+  display: flex;
+  justify-content: space-between;
+  color: #666666;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.payment-checkout-form-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  font-weight: 600;
+}
+
+.payment-checkout-form-paragraph {
+  padding: 30px;
+  border-bottom: 1px solid #ebedee;
+}
+
+.payment-checkout-form-paragraph span {
+  font-weight: 600;
+}
+
+.payment-checkout-form-stripe-container {
+  border-radius: 5px;
+  margin: 20px 30px;
+  border: 1px solid #ebedee;
+  height: 40px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px;
+}
+
+.payment-checkout-form-payment-button {
+  width: calc(100% - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #007580;
+  cursor: pointer;
+}
+
+.payment-checkout-form-payment-loading {
+  width: calc(100% - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #666666;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.payment-checkout-form-payment-valid {
+  width: calc(100% - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #00bb6a;
+  font-size: 13px;
+  font-weight: 300;
 }

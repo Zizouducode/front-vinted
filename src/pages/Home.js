@@ -44,6 +44,7 @@ const Home = ({ searchBar, switchButton, priceRange }) => {
         setData(response.data);
 
         //Set state of the viewMore button
+        // console.log(response.data.count);
         let numberOffersRequested = response.data.limit * viewMore;
         if (response.data.count < numberOffersRequested) {
           setViewMoreDisplayed(false);

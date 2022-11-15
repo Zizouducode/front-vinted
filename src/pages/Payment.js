@@ -7,10 +7,13 @@ const Payment = ({ userId }) => {
   //Get the params in the URL
   const location = useLocation();
   const { title, price, offerId } = location.state;
+  console.log(title);
+  console.log(price);
+  console.log(offerId);
   //States and variables
-  const protectionFees = 0.4;
-  const deliveryFees = 0.8;
-  const total = protectionFees + deliveryFees + price;
+  const protectionFees = 1.0;
+  const deliveryFees = 2.0;
+  const totalPrice = protectionFees + deliveryFees + price;
 
   //Connect to stripe
   const stripePromise = loadStripe(
@@ -18,31 +21,45 @@ const Payment = ({ userId }) => {
   );
 
   return (
-    <div className="container payment-checkout-form">
-      <span>Résumé de la commande</span>
-      <div>
-        <span>Commande</span>
-        <span>{price} €</span>
+    <div className="payment-background">
+      <div className="container payment-checkout-form">
+        <span className="payment-checkout-form-summary">
+          Résumé de la commande
+        </span>
+        <div className="payment-checkout-form-price-summary">
+          <div className="payment-checkout-form-row">
+            <span>Commande</span>
+            <span>{price} €</span>
+          </div>
+          <div className="payment-checkout-form-row">
+            <span>Frais de protection acheteurs </span>
+            <span>{protectionFees.toFixed(2)} €</span>
+          </div>
+          <div className="payment-checkout-form-row">
+            <span>Frais de port </span>
+            <span>{deliveryFees.toFixed(2)} €</span>
+          </div>
+        </div>
+
+        <div className="payment-checkout-form-total">
+          <span>Total </span>
+          <span>{totalPrice} €</span>
+        </div>
+        <p className="payment-checkout-form-paragraph">
+          Il ne vous plus qu'une étape pour vous offrir <span>{title}</span>.
+          Vous allez payer <span>{totalPrice}</span>€ (frais de protection
+          acheteur et frais de port inclus).
+        </p>
+        <div>
+          <Elements stripe={stripePromise}>
+            <CheckoutFrom
+              userId={userId}
+              offerId={offerId}
+              totalPrice={totalPrice}
+            />
+          </Elements>
+        </div>
       </div>
-      <div>
-        <span>Frais de protection acheteurs </span>
-        <span>{protectionFees} €</span>
-      </div>
-      <div>
-        <span>Frais de port </span>
-        <span>{deliveryFees} €</span>
-      </div>
-      <div>
-        <span>Total </span>
-        <span>{total} €</span>
-      </div>
-      <p>
-        {`Il ne vous plus qu'une étape pour vous offrir ${title}. Vous allez payer
-        5.15 € (frais de protection acheteur et frais de port inclus)`}
-      </p>
-      <Elements stripe={stripePromise}>
-        <CheckoutFrom userId={userId} offerId={offerId} />
-      </Elements>
     </div>
   );
 };

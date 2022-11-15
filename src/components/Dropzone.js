@@ -7,10 +7,10 @@ const Dropzone = ({ picture, setPicture }) => {
     (acceptedFiles) => {
       //   console.log(acceptedFiles);
       setPicture(acceptedFiles[0]);
-      const files = acceptedFiles.map((file) => (
-        <span key={file.path}>{file.path}</span>
-      ));
-      //   console.log(files);
+      // const files = acceptedFiles.map((file) => (
+      //   <span key={file.path}>{file.path}</span>
+      // ));
+      // //   console.log(files);
     },
     [setPicture]
   );
