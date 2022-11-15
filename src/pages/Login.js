@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ handleToken }) => {
+const Login = ({ handleToken, handleUserId }) => {
   //State and variables
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,6 +34,7 @@ const Login = ({ handleToken }) => {
           // console.log(response);
           if (response.data.token) {
             handleToken(response.data.token);
+            handleUserId(response.data._id);
             navigate("/publish");
           }
         } catch (error) {

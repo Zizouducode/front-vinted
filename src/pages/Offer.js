@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   //Get ID from the route
   const { id } = useParams();
 
@@ -21,7 +21,7 @@ const Offer = () => {
         );
         //Store the data in the state data
         setData(response.data);
-        // console.log(response.data);
+        console.log(response.data);
         //Change bool isLoading to notify data is received
         setIsLoading(false);
       } catch (error) {
@@ -77,8 +77,16 @@ const Offer = () => {
               </p>
             </div>
           </div>
-
-          <button className="offer-page-buy-button">Acheter</button>
+          <Link
+            to={token ? "/payment" : "/login"}
+            state={{
+              title: data.offer.product_name,
+              price: data.offer.product_price,
+              offerId: data.offer._id,
+            }}
+          >
+            <button className="offer-page-buy-button">Acheter</button>
+          </Link>
         </div>
       </div>
     </div>

@@ -18,11 +18,13 @@ import {
   faArrowUp,
   faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
+import Payment from "./pages/Payment";
 library.add(faMagnifyingGlass, faArrowUp, faArrowDown);
 
 function App() {
   //State and variables
   const [token, setToken] = useState(Cookies.get("token") || null);
+  const [userId, setUserId] = useState(Cookies.get("userId") || null);
   const [searchBar, setSearchBar] = useState("");
   const [switchButton, setSwichButton] = useState(false);
   const [priceRange, setPriceRange] = useState([10, 100]);
@@ -35,6 +37,15 @@ function App() {
     } else {
       setToken(null);
       Cookies.remove("token");
+    }
+  }; //Function to handle userId
+  const handleUserId = (userId) => {
+    if (userId) {
+      setUserId(userId);
+      Cookies.set("userId", userId, { expires: 7 });
+    } else {
+      setUserId(null);
+      Cookies.remove("userId");
     }
   };
   return (
@@ -61,16 +72,19 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/offer/:id" element={<Offer />}></Route>
+          <Route path="/offer/:id" element={<Offer token={token} />}></Route>
           <Route
             path="/signup"
             element={<Signup handleToken={handleToken} />}
           ></Route>
           <Route
             path="/login"
-            element={<Login handleToken={handleToken} />}
+            element={
+              <Login handleToken={handleToken} handleUserId={handleUserId} />
+            }
           ></Route>
           <Route path="/publish" element={<Publish token={token} />} />
+          <Route path="/payment" element={<Payment userId={userId} />} />
         </Routes>
         <Footer />
       </Router>
