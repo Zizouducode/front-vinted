@@ -8,7 +8,7 @@ const Publish = ({ token }) => {
   // console.log(token);
   //State and variables
   const [picture, setPicture] = useState();
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -106,12 +106,12 @@ const Publish = ({ token }) => {
             },
           }
         );
-        setData(response.data);
+        // setData(response.data);
         if (response.status === 200) {
           alert("Votre annonce a bien été enregistrée");
           navigate(`/offer/${response.data.newOffer._id}`);
         }
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.log(error.message);
       }
@@ -213,6 +213,7 @@ const Publish = ({ token }) => {
             <p>Prix</p>
             <div className="publish-form-price-input-checkbox-container">
               <input
+                className="publish-form-price"
                 type="number"
                 placeholder="0,00 €"
                 onChange={handlePriceChange}

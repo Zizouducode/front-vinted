@@ -5,17 +5,6 @@
 }
 
 /* Remove arrow from input numbers */
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
 
 body {
   font-family: "Roboto", sans-serif;
@@ -183,6 +172,23 @@ input:focus {
   pointer-events: none;
   position: absolute;
   right: 0;
+}
+
+.view-more-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-more-button {
+  background-color: #007580;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  width: 100px;
+  margin-bottom: 50px;
+  cursor: pointer;
 }
 
 /* OFFERCARD */
@@ -631,6 +637,10 @@ input:focus {
 
 .publish-form-price-input-checkbox-container input:focus {
   border-bottom: 1px solid #007580;
+}
+
+.publish-form-price::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .publish-form-checkbox-container {

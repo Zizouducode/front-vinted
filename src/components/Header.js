@@ -7,6 +7,7 @@ import PriceRange from "./PriceRange";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = ({
+  token,
   handleToken,
   searchBar,
   setSearchBar,
@@ -101,7 +102,7 @@ const Header = ({
           )}
         </div>
         <div>
-          <Link to="/publish">
+          <Link to={token ? "/publish" : "/login"}>
             <button className="header-button green-button">
               Vends tes articles
             </button>

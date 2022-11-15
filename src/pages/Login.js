@@ -24,14 +24,14 @@ const Login = ({ handleToken }) => {
     if (email && password) {
       user.email = email;
       user.password = password;
-      console.log(user);
+      // console.log(user);
       const logUser = async () => {
         try {
           const response = await axios.post(
             `https://site--backend-vinted--nfqr62d7mh6n.code.run/user/login`,
             user
           );
-          console.log(response);
+          // console.log(response);
           if (response.data.token) {
             handleToken(response.data.token);
             navigate("/publish");

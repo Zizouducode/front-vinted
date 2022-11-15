@@ -2,10 +2,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
 import OfferCard from "../components/OfferCard";
+import ViewMoreButton from "../components/ViewMoreButton";
 
 const Home = ({ searchBar, switchButton, priceRange }) => {
   //State to store data from de backend
   const [data, setData] = useState();
+  //State and variable to handle viewMoreButton
+  const [viewMore, setViewMore] = useState(1);
+  const [viewMoreDisplayed, setViewMoreDisplayed] = useState(true);
 
   //State to notify when the data is received
   const [isLoading, setIsLoading] = useState(true);
@@ -32,12 +36,18 @@ const Home = ({ searchBar, switchButton, priceRange }) => {
               sort: sort,
               priceMin: priceMin,
               priceMax: priceMax,
+              viewMore: viewMore,
             },
           }
         );
         //Store the data in the state data
         setData(response.data);
-        // console.log(response.data);
+
+        //Set state of the viewMore button
+        let numberOffersRequested = response.data.limit * viewMore;
+        if (response.data.count < numberOffersRequested) {
+          setViewMoreDisplayed(false);
+        }
         //Change bool isLoading to notify data is received
         setIsLoading(false);
       } catch (error) {
@@ -45,7 +55,7 @@ const Home = ({ searchBar, switchButton, priceRange }) => {
       }
     };
     fecthData();
-  }, [searchBar, switchButton, priceRange]);
+  }, [searchBar, switchButton, priceRange, viewMore]);
   // console.log(data);
   return (
     <div>
@@ -54,10 +64,17 @@ const Home = ({ searchBar, switchButton, priceRange }) => {
       {isLoading ? (
         <p>Waiting for data</p>
       ) : (
-        <div className="offers container">
-          {data.offers.map((offer) => {
-            return <OfferCard key={offer._id} offer={offer} />;
-          })}
+        <div>
+          <div className="offers container">
+            {data.offers.map((offer) => {
+              return <OfferCard key={offer._id} offer={offer} />;
+            })}
+          </div>
+          <ViewMoreButton
+            viewMore={viewMore}
+            setViewMore={setViewMore}
+            viewMoreDisplayed={viewMoreDisplayed}
+          />
         </div>
       )}
     </div>
