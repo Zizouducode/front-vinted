@@ -55,7 +55,7 @@ const Payment = ({ userId }) => {
             <CheckoutFrom
               userId={userId}
               offerId={offerId}
-              totalPrice={totalPrice}
+              totalPrice={totalPrice.toFixed(2)}
             />
           </Elements>
         </div>
