@@ -661,7 +661,7 @@ input:focus {
   color: white;
   align-self: flex-end;
   margin: 50px 0;
-  cursor: po;
+  cursor: pointer;
 }
 
 /* FOOTER */
