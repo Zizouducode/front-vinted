@@ -43,12 +43,12 @@ const Payment = ({ userId }) => {
 
         <div className="payment-checkout-form-total">
           <span>Total </span>
-          <span>{totalPrice} €</span>
+          <span>{totalPrice.toFixed(2)} €</span>
         </div>
         <p className="payment-checkout-form-paragraph">
           Il ne vous plus qu'une étape pour vous offrir <span>{title}</span>.
-          Vous allez payer <span>{totalPrice}</span>€ (frais de protection
-          acheteur et frais de port inclus).
+          Vous allez payer <span>{totalPrice.toFixed(2)}</span>€ (frais de
+          protection acheteur et frais de port inclus).
         </p>
         <div>
           <Elements stripe={stripePromise}>
