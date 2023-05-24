@@ -33,27 +33,42 @@ input:focus {
   height: 125px;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 600px) {
+    display: block;
+    height: 200px;
+  }
 }
 
 .header {
   width: 1200px;
   margin: 0 auto;
-  /* width: 1200px; */
   display: flex;
   gap: 30px;
   justify-content: space-between;
   align-items: center;
-  /* background-color: red; */
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    display: block;
+    height: 500px;
+  }
 }
 
 .logo {
   height: 40px;
   width: auto;
+  @media only screen and (max-width: 600px) {
+    height: 30px;
+  }
 }
 
 .search-bar-container {
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 }
 .magnifying-glass-icon {
   color: #bbbbbb;
@@ -76,6 +91,17 @@ input:focus {
 .header-button-container {
   display: flex;
   gap: 20px;
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+.display-none {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 .header-button {
@@ -87,6 +113,7 @@ input:focus {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .white-button {
@@ -109,6 +136,9 @@ input:focus {
   display: flex;
   align-items: center;
   height: 80px;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 .filters-container span {
@@ -126,6 +156,11 @@ input:focus {
   background-position: center;
   padding-top: 125px;
   position: relative;
+  @media only screen and (max-width: 600px) {
+    height: 300px;
+    display: flex;
+    flex-direction: columns;
+  }
 }
 
 .hero-container {
@@ -142,9 +177,13 @@ input:focus {
   padding: 32px;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
   border-radius: 5px;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    border-radius: 0px;
+    margin-top: 130px;
+  }
 }
 
 .hero-button {
@@ -195,9 +234,11 @@ input:focus {
   margin-top: 50px;
   border: 2x red solid;
   display: flex;
-
-  /* justify-content: space-between; */
   flex-wrap: wrap;
+  @media only screen and (max-width: 600px) {
+    padding-top: 150px;
+    margin-bottom: 100px;
+  }
 }
 
 .offer {
@@ -207,6 +248,12 @@ input:focus {
   height: 480px;
   padding: 10px;
   margin-bottom: 20px;
+  @media only screen and (max-width: 600px) {
+    width: calc(100% / 2 - 20px);
+    border-radius: 0px;
+    margin-top: 50px;
+    height: 250px;
+  }
 }
 
 .offer-user-info {
@@ -244,6 +291,9 @@ input:focus {
   height: 355px;
   width: 100%;
   object-fit: contain;
+  @media only screen and (max-width: 600px) {
+    height: 200px;
+  }
 }
 
 .offer-description-containter {
@@ -273,6 +323,9 @@ input:focus {
   display: flex;
   padding-top: 50px;
   gap: 50px;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .offer-page-img-container {
@@ -280,18 +333,29 @@ input:focus {
   height: 630px;
   /* border: #007580 1px solid; */
   display: flex;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    height: 250px;
+  }
 }
 .offer-page-img {
   height: 630px;
   width: 100%;
   object-fit: contain;
   margin: 0 auto;
+  @media only screen and (max-width: 600px) {
+    height: 250px;
+  }
 }
 
 .offer-page-info {
   width: 35%;
   background-color: white;
   padding: 50px 30px;
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+    margin: auto;
+  }
 }
 .offer-page-details-price {
   font-size: 20px;
@@ -323,6 +387,10 @@ input:focus {
 .offer-page-details-main {
   height: 125px;
   margin-bottom: 50px;
+  @media only screen and (max-width: 600px) {
+    height: 100px;
+    margin-bottom: 25px;
+  }
 }
 
 .offer-page-details-title {
@@ -383,6 +451,9 @@ input:focus {
   margin: 0 auto;
   padding: 30px;
   min-height: 100vh;
+  @media only screen and (max-width: 600px) {
+    max-width: 100%;
+  }
 }
 .form h1 {
   /* background-color: red; */
@@ -457,6 +528,9 @@ input:focus {
 .publish-form-container {
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
 }
 
 .publish-form {
@@ -694,6 +768,9 @@ footer span {
   width: 50%;
   height: 550px;
   background-color: white;
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
 }
 
 .payment-checkout-form-summary {

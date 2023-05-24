@@ -103,7 +103,7 @@ const Header = ({
         </div>
         <div>
           <Link to={token ? "/publish" : "/login"}>
-            <button className="header-button green-button">
+            <button className="header-button green-button display-none">
               Vends tes articles
             </button>
           </Link>
